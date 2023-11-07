@@ -58,8 +58,11 @@ All these functions have the same input parameters and as output the file in the
 > Input arguments
 >
 >> `db_name`: The name of the SQLite database file.
+>> 
 >> `table_name`: The name of the table in the database you want to export.
+>> 
 >> `output_filename`: The name of the output JSON file where the exported data will be saved.
+>> 
 >> `selected_columns` (optional): A list of column names you want to export. If provided, only the specified columns will be exported. If not provided, all columns in the table will be exported.
 >
 > Returns:
