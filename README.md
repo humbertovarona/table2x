@@ -68,4 +68,25 @@ All these functions have the same input parameters and as output the file in the
 > Returns:
 > 
 >> None
->>
+
+# How to run
+
+```python
+nombre_base_datos = "news.db"
+nombre_tabla_sqlite = "news"
+excel_filename = "datos_exportados_excel.xlsx"
+ods_filename = "datos_exportados_LO_DS.ods"
+csv_filename = "datos_exportados_CSV.csv"
+word_filename = "datos_exportados_word.docx"
+json_filename = "exported_data.json"
+latex_filename = "exported_data.tex"
+
+selected_columns = ["title", "source", "relevance"]
+
+export_to_word(nombre_base_datos, nombre_tabla_sqlite, word_filename, selected_columns)
+export_to_excel(nombre_base_datos, nombre_tabla_sqlite, excel_filename, selected_columns)
+export_to_libreoffice_calc(nombre_base_datos, nombre_tabla_sqlite, ods_filename, selected_columns)
+export_to_csv(nombre_base_datos, nombre_tabla_sqlite, csv_filename, selected_columns)
+export_to_json(nombre_base_datos, nombre_tabla_sqlite, json_filename, selected_columns)
+export_to_latex(nombre_base_datos, nombre_tabla_sqlite, latex_filename, selected_columns)
+```
