@@ -37,10 +37,9 @@ pip install -r requirements.txt
 ```python
 import sqlite3
 import pandas as pd
+from docx import Document
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
-from docx import Document
-import json
 ```
 
 # Function list
