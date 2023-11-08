@@ -1,0 +1,20 @@
+def export_to_word(db_name, table_name, output_filename, selected_columns=None):
+    conn = sqlite3.connect(db_name)
+    if selected_columns:
+        columns = ', '.join(selected_columns)
+        query = f"SELECT {columns} FROM {table_name}"
+    else:
+        query = f"SELECT * FROM {table_name}"
+    df = pd.read_sql_query(query, conn)
+    doc = Document()
+    doc.add_heading(table_name, level=1)
+    table = doc.add_table(rows=1, cols=len(df.columns))
+    table.style = 'Table Grid'
+    for i, col_name in enumerate(df.columns):
+        table.cell(0, i).text = col_name
+    for _, row in df.iterrows():
+        row_cells = table.add_row().cells
+        for i, cell_value in enumerate(row):
+            row_cells[i].text = str(cell_value)
+    doc.save(output_filename)
+    conn.close()
